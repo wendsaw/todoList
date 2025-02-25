@@ -31,12 +31,13 @@ const NewTodo = ({dispatch}) => {
           type="text"
           value={newTodo}
           onChange={handChange}
-          placeholder="Add a new todo"
+          placeholder="Add task"
           
         />
         <button  className="add"   type="submit" >
           Add
         </button>
+        
       </form></>
     );
 }

@@ -11,6 +11,7 @@ const TodoItem = ({ todo, dispatch }) => {
     });
 
   return (
+    <>
     <div className="list-todo">
       <div className="check-box">
         <input type="checkbox" checked={todo.completed} onChange={handleToggle} />
@@ -28,6 +29,7 @@ const TodoItem = ({ todo, dispatch }) => {
         {!todo.isEditing && (
           <span style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>
             {todo.title}
+           
           </span>
         )}
       </div>
@@ -45,7 +47,22 @@ const TodoItem = ({ todo, dispatch }) => {
           </>
         )}
       </div>
+      
     </div>
+    <div>
+    <div className="actions">
+        {todo.isEditing && (
+          <>
+            
+            <button  className="add"   type="submit" >
+    save
+  </button>
+          </>
+        )}
+      </div>
+      
+    </div>
+    </>
   );
 };
 
