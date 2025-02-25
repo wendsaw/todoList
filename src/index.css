@@ -19,6 +19,7 @@ p {
 }
 .edit {
   border: 0;
+  margin-left: 25px;
   padding: 8px;
   border-radius: 4px;
   color:white;
@@ -82,7 +83,7 @@ form label span {
 
 /*  */
 .main-content {
-  max-width: 600px;
+  max-width: 1000px;
   margin: 2rem auto;
   padding: 1rem
 }
@@ -102,18 +103,8 @@ form label span {
   padding: 0
 } */
 
-/* #list-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem;
-  border-bottom: 1px solid #ccc
-} */
-/* 
-.check-box {
-  display: flex;
-  align-items: center
-} */
+
+
 /* #span{
   
     margin-left: 0.5rem,

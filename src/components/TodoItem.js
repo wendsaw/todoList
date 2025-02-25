@@ -9,11 +9,11 @@ const TodoItem = ({ todo, dispatch }) => {
       type: "CHANGE_EDIT_TEXT",
       payload: { id: todo.id, value: e.target.value },
     });
-  
+
 
   return (
 
-    <li id='list-item'>
+    <div className='list-todo'>
       <div className='check-box' >
         <input type="checkbox" checked={todo.completed} onChange={handleToggle} />
         {todo.isEditing ? (
@@ -29,28 +29,31 @@ const TodoItem = ({ todo, dispatch }) => {
               textDecoration: todo.completed ? 'line-through' : 'none',
             }}
           >
-            {todo.title}
+            
           </span>
         )}
       </div>
       <div>
         {todo.isEditing ? (
           <>
-           
+
           </>
         ) : (
+          
           <>
+          {todo.title}
             <button className='edit' onClick={handleEdit} >
               Edit
             </button>
+            
             <button className='delete' onClick={handleDelete} disabled={!todo.completed}>
               Delete
             </button>
           </>
         )}
       </div>
-    </li>
-    
+    </div>
+
   );
 };
 
