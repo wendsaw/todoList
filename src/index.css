@@ -96,3 +96,7 @@ form label span {
 .todo-content {
   flex: 1;
 }
+.input{
+  width: 80%;
+  padding: 0.5rem
+ }

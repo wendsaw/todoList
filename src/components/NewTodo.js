@@ -8,10 +8,9 @@ const NewTodo = ({dispatch}) => {
 
     const handleAddTodo = (e) => {
         e.preventDefault();
-        if (newTodo.trim()) {
           dispatch({ type: "ADD", payload: newTodo });
           setNewTodo('');
-        }
+        
       };
 
       const handChange=(e)=>{
@@ -28,11 +27,12 @@ const NewTodo = ({dispatch}) => {
      <form onSubmit={handleAddTodo} className="new-todo">
         <input
         // ref={input}
+         className="input"
           type="text"
           value={newTodo}
           onChange={handChange}
           placeholder="Add a new todo"
-          style={{ width: '80%', padding: '0.5rem' }}
+          
         />
         <button  className="add"   type="submit" >
           Add
