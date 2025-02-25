@@ -17,17 +17,34 @@ body {
 p {
   margin: 20px 0;
 }
-button {
+.edit {
   border: 0;
   padding: 8px;
   border-radius: 4px;
-  color: white;
+  color:white;
   background: var(--primary);
   cursor: pointer;
 }
 
+.delete {
 
+  border: 0;
+  margin-left: 25px;
+  padding: 8px;
+  border-radius: 4px;
+  color:black;
+  background: var(--primary);
+  cursor: pointer;
+}
 
+.add {
+  border: 0;
+  padding: 8px;
+  border-radius: 4px;
+  color:red;
+  background:white;
+  cursor: pointer;
+}
  
 
 .new-todo{
