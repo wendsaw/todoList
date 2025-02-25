@@ -37,9 +37,27 @@ export const reducer = (state, action) => {
       return false;
     }
   });
+
+  case "CHANGE_EDIT_TEXT":
+
+          return state.map(todo => {
+            if (todo.id === action.payload) {
+              return { ...todo, isEditing: true, editText: todo.title };
+            }
+            return todo;
+          });
   
-       
-      
+       case "SAVE":
+
+    
+       return [
+        {
+          
+          completed: false,
+          isEditing: false,
+        },
+        ...state,
+      ];
          
 default:
 

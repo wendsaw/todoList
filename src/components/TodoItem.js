@@ -1,9 +1,10 @@
 import React from 'react';
 
 
+
 const TodoItem = ({ todo, dispatch }) => {
 
-  // const [isEditing, setIsEditing]=useState(false)
+  
 
   const handleToggle = () => dispatch({ type: "TOGGLE", payload: todo.id });
   const handleEdit = () => dispatch({ type: "EDIT", payload: todo.id });
@@ -22,6 +23,7 @@ const TodoItem = ({ todo, dispatch }) => {
               type="text"
               value={todo.editText}
               onChange={handleChange}
+              
 
             />
           )}
