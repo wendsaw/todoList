@@ -16,10 +16,11 @@ const TodoItem = ({ todo, dispatch }) => {
         <input type="checkbox" checked={todo.completed} onChange={handleToggle} />
         {todo.isEditing && (
           <input
+          className='input-item'
             type="text"
             value={todo.editText}
             onChange={handleChange}
-            style={{ marginLeft: '0.5rem' }}
+            
           />
         )}
       </div>
