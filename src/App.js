@@ -1,8 +1,8 @@
 import React, { useReducer, useState } from 'react';
-import TodoList from './TodoList';
+import TodoList from './components/TodoList';
 import { initialState } from './data';
 import { reducer } from './Reducer';
-import NewTodo from './NewTodo';
+import NewTodo from './components/NewTodo';
 
 function App() {
   const [todos, dispatch] = useReducer(reducer, initialState);
