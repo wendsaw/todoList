@@ -1,9 +1,10 @@
 
-import { useState, useReducer } from "react";
+import { useState} from "react";
 
 const NewTodo = ({dispatch}) => {
 
     const [newTodo, setNewTodo] = useState('');
+    
 
     const handleAddTodo = (e) => {
         e.preventDefault();
@@ -12,6 +13,13 @@ const NewTodo = ({dispatch}) => {
           setNewTodo('');
         }
       };
+
+      const handChange=(e)=>{
+
+         setNewTodo(e.target.value)
+        
+
+      }
     
 
     return (  
@@ -19,9 +27,10 @@ const NewTodo = ({dispatch}) => {
     
      <form onSubmit={handleAddTodo} className="new-todo">
         <input
+        // ref={input}
           type="text"
           value={newTodo}
-          onChange={(e) => setNewTodo(e.target.value)}
+          onChange={handChange}
           placeholder="Add a new todo"
           style={{ width: '80%', padding: '0.5rem' }}
         />

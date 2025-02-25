@@ -13,7 +13,6 @@ const TodoItem = ({ todo, dispatch }) => {
 
   return (
 
-    
     <li id='list-item'>
       <div className='check-box' >
         <input type="checkbox" checked={todo.completed} onChange={handleToggle} />
