@@ -19,7 +19,7 @@ p {
 }
 .edit {
   border: 0;
-  margin-left: 25px;
+  margin-left: 5px;
   padding: 8px;
   border-radius: 4px;
   color:white;
@@ -29,8 +29,10 @@ p {
 
 .delete {
 
+  margin-right: 200px;
+
   border: 0;
-  margin-left: 25px;
+  margin-left: 5px;
   padding: 8px;
   border-radius: 4px;
   color:black;
@@ -113,3 +115,17 @@ form label span {
 /* .save .edit {
   margin-right: 0.5rem
 } */
+
+.list-todo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem; 
+}
+.check-box {
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+}
+.todo-content {
+  flex: 1;
+}

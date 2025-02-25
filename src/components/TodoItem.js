@@ -10,50 +10,41 @@ const TodoItem = ({ todo, dispatch }) => {
       payload: { id: todo.id, value: e.target.value },
     });
 
-
   return (
-
-    <div className='list-todo'>
-      <div className='check-box' >
+    <div className="list-todo">
+      <div className="check-box">
         <input type="checkbox" checked={todo.completed} onChange={handleToggle} />
-        {todo.isEditing ? (
+        {todo.isEditing && (
           <input
             type="text"
             value={todo.editText}
             onChange={handleChange}
             style={{ marginLeft: '0.5rem' }}
           />
-        ) : (
-          <span id='span'
-            style={{
-              textDecoration: todo.completed ? 'line-through' : 'none',
-            }}
-          >
-            
+        )}
+      </div>
+      <div className="todo-content">
+        {!todo.isEditing && (
+          <span style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>
+            {todo.title}
           </span>
         )}
       </div>
-      <div>
-        {todo.isEditing ? (
+      <div className="actions">
+        {!todo.isEditing && (
           <>
-
-          </>
-        ) : (
-          
-          <>
-          {todo.title}
-            <button className='edit' onClick={handleEdit} >
-              Edit
-            </button>
-            
-            <button className='delete' onClick={handleDelete} disabled={!todo.completed}>
+            <button className="edit" onClick={handleEdit}>Edit</button>
+            <button
+              className="delete"
+              onClick={handleDelete}
+              disabled={!todo.completed}
+            >
               Delete
             </button>
           </>
         )}
       </div>
     </div>
-
   );
 };
 
