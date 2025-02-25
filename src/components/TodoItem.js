@@ -1,57 +1,42 @@
 import React from 'react';
 
-const TodoItem = ({todo,dispach}) => {
+const TodoItem = ({ todo, dispatch }) => {
+  const handleToggle = () => dispatch({ type: "TOGGLE", payload: todo.id });
+  const handleEdit = () => dispatch({ type: "EDIT", payload: todo.id });
+  const handleDelete = () => dispatch({ type: "DELETE", payload: todo.id });
+  const handleChange = (e) =>
+    dispatch({
+      type: "CHANGE_EDIT_TEXT",
+      payload: { id: todo.id, value: e.target.value },
+    });
+  const handleSave = () => dispatch({ type: "SAVE", payload: { id: todo.id } });
+  const handleCancel = () => dispatch({ type: "CANCEL_EDIT", payload: todo.id });
 
-  const handleFlip=()=>{
-    dispach({type:"FLIP", payload:todo.id});
+  return (
 
-  }
-  const handleEdit=()=>{
-    dispach({type:"EDIT", payload:todo.id})
-  }
-  const handleDelete=()=>{
-    dispach({type:"Delete", payload:todo.id})
-  }
-
-  const handleChange=(e)=>{
-    dispach({ type:"CHANGE_EDIT_TEXT", payload:{id:todo.id, value:e.target.value}})
-
-  };
-
-  const handleSave=()=>{
-    dispach({type:"SAVE", payload:{id:todo.id}})
-  }
-  const handleCancel=()=>{
-    dispach({type:"CANCEL_EDIT", payload:todo.id})}
-
-
-  return ( 
-    <li>
-
-<div className="todo-liste">
-      <input type="checkbox" checked={todo.complete} onChange={handleFlip}/>
-      {todo.IsEditing? (
-        <input type='text'
-        value={todo.edittext}
-        onChange={{handleChange}}
-        style={{marginLeft:"0.5rem"}}
-        />
-      ):
-      (
-        <span id='span'
-        style={{
-          textDecoration:todo.complete? "line-throught":"none",
-        }}> 
-        {todo.title}
-        </span>
-       
-      )}
-
-    </div>
-
-    <div>
-
-    {todo.isEditing ? (
+    
+    <li id='list-item'>
+      <div className='check-box' >
+        <input type="checkbox" checked={todo.completed} onChange={handleToggle} />
+        {todo.isEditing ? (
+          <input
+            type="text"
+            value={todo.editText}
+            onChange={handleChange}
+            style={{ marginLeft: '0.5rem' }}
+          />
+        ) : (
+          <span id='span'
+            style={{
+              textDecoration: todo.completed ? 'line-through' : 'none',
+            }}
+          >
+            {todo.title}
+          </span>
+        )}
+      </div>
+      <div>
+        {todo.isEditing ? (
           <>
             <button className='save' onClick={handleSave} >
               Save
@@ -68,19 +53,10 @@ const TodoItem = ({todo,dispach}) => {
             </button>
           </>
         )}
-
-      
-    </div>
+      </div>
     </li>
-
     
+  );
+};
 
-      
-    
-   );
-}
- 
 export default TodoItem;
-
-
-
