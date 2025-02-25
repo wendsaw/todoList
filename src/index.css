@@ -80,3 +80,45 @@ form label span {
   margin-bottom: 10px;
 }
 
+/*  */
+.main-content {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1rem
+}
+
+.new-todo {
+  margin-bottom: 1rem;
+  
+}
+
+/* .add {
+  padding: 0.5rem;
+  margin-left: 0.5rem
+} */
+
+/* .todo-list {
+  list-style: 'none';
+  padding: 0
+} */
+
+/* #list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  border-bottom: 1px solid #ccc
+} */
+/* 
+.check-box {
+  display: flex;
+  align-items: center
+} */
+/* #span{
+  
+    margin-left: 0.5rem,
+  
+} */
+/* .save .edit {
+  margin-right: 0.5rem
+} */

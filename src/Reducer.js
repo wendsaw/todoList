@@ -28,18 +28,6 @@ export const reducer = (state, action) => {
             return todo;
           });
     
-    case "SAVE":
-  return state.map(todo => {
-    if (todo.id === action.payload.id) {
-      return {
-        ...todo,
-        title: todo.editText,
-        isEditing: false,
-        editText: undefined
-      };
-    }
-    return todo;
-  });
     
     case "DELETE":
   return state.filter(todo => {
