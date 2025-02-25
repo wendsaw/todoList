@@ -9,8 +9,7 @@ const TodoItem = ({ todo, dispatch }) => {
       type: "CHANGE_EDIT_TEXT",
       payload: { id: todo.id, value: e.target.value },
     });
-  const handleSave = () => dispatch({ type: "SAVE", payload: { id: todo.id } });
-  const handleCancel = () => dispatch({ type: "CANCEL_EDIT", payload: todo.id });
+  
 
   return (
 
@@ -38,10 +37,7 @@ const TodoItem = ({ todo, dispatch }) => {
       <div>
         {todo.isEditing ? (
           <>
-            <button className='save' onClick={handleSave} >
-              Save
-            </button>
-            <button onClick={handleCancel}>Cancel</button>
+           
           </>
         ) : (
           <>
