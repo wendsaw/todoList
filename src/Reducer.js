@@ -37,17 +37,9 @@ export const reducer = (state, action) => {
       return false;
     }
   });
-  case "SAVE":
-    return [
-      {
-        userId: "1",
-        id: Date.now(),
-        title: action.payload,
-        completed: false,
-        isEditing: false,
-      },
-      ...state,
-    ];
+  
+       
+      
          
 default:
 

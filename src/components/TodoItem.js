@@ -1,15 +1,15 @@
 import React from 'react';
 
+
 const TodoItem = ({ todo, dispatch }) => {
+
+  // const [isEditing, setIsEditing]=useState(false)
+
   const handleToggle = () => dispatch({ type: "TOGGLE", payload: todo.id });
   const handleEdit = () => dispatch({ type: "EDIT", payload: todo.id });
   const handleDelete = () => dispatch({ type: "DELETE", payload: todo.id });
   const handleSave = () => dispatch({ type: "SAVE", payload: todo.id });
-  const handleChange = (e) =>
-    dispatch({
-      type: "CHANGE_EDIT_TEXT",
-      payload: { id: todo.id, value: e.target.value },
-    });
+  const handleChange = (e) => dispatch({type: "CHANGE_EDIT_TEXT", payload: { id: todo.id, value: e.target.value },});
 
   return (
     <>
