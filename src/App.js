@@ -10,6 +10,7 @@ function App() {
   
   return (
     <div className="main-content ">
+      <h1>Todo List</h1>
       
       <AddTodo dispatch={dispatch}/>
       <TodoList state={state} dispatch={dispatch}/>
