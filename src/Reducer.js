@@ -1,5 +1,3 @@
-
-
 export const reducer = (state, action) => {
   switch (action.type) {
     case "ADD":
@@ -9,61 +7,24 @@ export const reducer = (state, action) => {
           id: Date.now(),
           title: action.payload,
           completed: false,
-          isEditing: false,
         },
         ...state,
       ];
-      case "TOGGLE":
-        return state.map(todo => {
-          if (todo.id === action.payload) {
-            return { ...todo, completed: !todo.completed };
-          }
-          return todo;
-        });
-        case "EDIT":
-          return state.map(todo => {
-            if (todo.id === action.payload) {
-              return { ...todo, isEditing: true, editText: todo.title };
-            }
-            return todo;
-          });
-    
-    
+    case "CHECKBOX":
+      return state.map((todo) =>
+        todo.id === action.payload.id
+          ? { ...todo, completed: action.payload.completed }
+          : todo
+      );
+    case "EDIT":
+      return state.map((todo) =>
+        todo.id === action.payload.id
+          ? { ...todo, title: action.payload.title }
+          : todo
+      );
     case "DELETE":
-  return state.filter(todo => {
-    if (todo.id !== action.payload) {
-      return true;
-    } else {
-      return false;
-    }
-  });
-
-  case "CHANGE_EDIT_TEXT":
-
-          return state.map(todo => {
-            if (todo.id === action.payload) {
-              return { ...todo, isEditing: true, editText: todo.title };
-            }
-            return todo;
-          });
-  
-       case "SAVE":
-
-    
-       return [
-        {
-          
-          completed: false,
-          isEditing: false,
-        },
-        ...state,
-      ];
-         
-default:
-
-
-  return state;
-
+      return state.filter((todo) => todo.id !== action.payload.id);
+    default:
+      return state;
   }
-
 };

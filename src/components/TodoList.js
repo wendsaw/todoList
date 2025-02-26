@@ -1,22 +1,15 @@
-import React from 'react';
+import React from 'react'
 import TodoItem from './TodoItem'
 
-
-
-const TodoList= ({todos, dispatch}) => {
+const TodoList = ({state, dispatch}) => {
 
   return (
-    <div className="todo-list">
-      <ul>
-        {todos.map(todo =>(
-          <TodoItem key={todo.id} todo={todo} dispatch={dispatch}/>
-        ))}
-      </ul>
+    <div >
+        {state.map(item => {
+       return   <TodoItem key={item.id} item={item} dispatch={dispatch} />
+        })}
     </div>
-  
-  );
-    
-  
-};
+  )
+}
 
 export default TodoList

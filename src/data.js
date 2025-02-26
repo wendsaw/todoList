@@ -1,4 +1,4 @@
-export const initialState = [
+ const initialState = [
     {
       "userId": 1,
       "id": 1,
@@ -120,3 +120,5 @@ export const initialState = [
       "completed": true
     }
   ];
+
+  export default initialState

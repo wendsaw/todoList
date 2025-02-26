@@ -1,22 +1,19 @@
-import React, { useReducer, useState } from 'react';
-import TodoList from './components/TodoList';
-import { initialState } from './data';
-import { reducer } from './Reducer';
-import NewTodo from './components/NewTodo';
+import { useReducer } from "react";
+import { reducer } from "./reducer";
+import initialState from"./data"
+
+import TodoList from "./components/TodoList";
+import AddTodo from "./components/AddTodo";
 
 function App() {
-  const [todos, dispatch] = useReducer(reducer, initialState);
-  console.log(dispatch);
+  const [state, dispatch] = useReducer(reducer, initialState);
   
   return (
-    <>
-    <div className="main-content" >
-      <h1>Todo List</h1>
-      <NewTodo dispatch={dispatch}/>
-      <TodoList todos={todos} dispatch={dispatch} />
+    <div className="main-content ">
       
+      <AddTodo dispatch={dispatch}/>
+      <TodoList state={state} dispatch={dispatch}/>
     </div>
-    </>
   );
 }
 

@@ -1,71 +1,66 @@
-import React from 'react';
+import React, { useState } from "react";
 
+const TodoItem = ({ item, dispatch }) => {
+  const [isEditing, setIsEditing] = useState(false);
+  const [newTitle, setNewTitle] = useState(item.title);
 
+  const handleChange = () => {
+    dispatch({
+      type: "CHECKBOX",
+      payload: { ...item, completed: !item.completed },
+    });
+  };
 
-const TodoItem = ({ todo, dispatch }) => {
-
-  
-
-  const handleToggle = () => dispatch({ type: "TOGGLE", payload: todo.id });
-  const handleEdit = () => dispatch({ type: "EDIT", payload: todo.id });
-  const handleDelete = () => dispatch({ type: "DELETE", payload: todo.id });
-  const handleSave = () => dispatch({ type: "SAVE", payload: todo.id });
-  const handleChange = (e) => dispatch({type: "CHANGE_EDIT_TEXT", payload: { id: todo.id, value: e.target.value },});
-
+  const handleSave = () => {
+    dispatch({ type: "EDIT", payload: { ...item, title: newTitle } });
+    setIsEditing(false);
+  };
   return (
-    <>
-      <div className="list-todo">
-        <div className="check-box">
-          <input type="checkbox" checked={todo.completed} onChange={handleToggle} />
-          {todo.isEditing && (
-            <input
-              className='input-item'
-              type="text"
-              value={todo.editText}
-              onChange={handleChange}
-              
-
-            />
-          )}
-        </div>
+    <div className="list-todo ">
+      <input type="checkbox" checked={item.completed} onChange={handleChange} />
+      {isEditing ? (
+        <input
+          className="input-item"
+          type="text"
+          value={newTitle}
+          onChange={(e) => setNewTitle(e.target.value)}
+        />
+      ) : (
         <div className="todo-content">
-          {!todo.isEditing && (
-            <span style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>
-              {todo.title}
+        {!item.isEditing && (
+          <span style={{ textDecoration: item.completed ? 'line-through' : 'none' }}>
+            {item.title}
 
-            </span>
-          )}
-        </div>
-        <div className="actions">
-          {!todo.isEditing && (
-            <>
-              <button className="edit" onClick={handleEdit}>Edit</button>
-              <button
-                className="delete"
-                onClick={handleDelete}
-                disabled={!todo.completed}
-              >
-                Delete
-              </button>
-            </>
-          )}
-        </div>
-
+          </span>
+        )}
       </div>
-      <div>
-        <div className="actions">
-          {todo.isEditing && (
-            <>
-
-              <button onClick={handleSave} className="add" type="submit" >
-                save
-              </button>
-            </>
-          )}
-        </div>
-
-      </div>
-    </>
+      )}
+      {isEditing ? (
+        <button
+          className="edit"
+          onClick={handleSave}
+        >
+          Save
+        </button>
+      ) : (
+        <>
+          <button
+            className="edit"
+            disabled={item.completed}
+            onClick={() => setIsEditing(!isEditing)}
+          >
+            Edit
+          </button>
+          <button
+            className="delete"
+            onClick={() => dispatch({ type: "DELETE", payload: { ...item } })}
+            disabled={!item.completed}
+          >
+            Delete
+          </button>
+        </>
+      )}
+    </div>
   );
 };
 
